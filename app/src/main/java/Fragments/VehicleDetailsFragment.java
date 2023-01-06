@@ -27,7 +27,17 @@ import java.util.List;
 public class VehicleDetailsFragment extends Fragment {
 
     private String vin,make_and_model,color,car_type;
+<<<<<<< HEAD
     Toolbar toolbar_fragment;
+=======
+    int kilometrage,remaining_kilometrage;
+    double carbon_emission = 0;
+    double remaining_carbon_emission = 0.0;
+    double total_carbon_emission = 0.0;
+    Toolbar toolbar_fragment;
+    Button btn_carbon_emission;
+    LinearLayout ll_carbon_emission;
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
     List<DataModel> dataModels;
     int position;
 
@@ -53,8 +63,16 @@ public class VehicleDetailsFragment extends Fragment {
         tv_fetch_model = view.findViewById(R.id.tv_fetch_model);
         tv_fetch_color = view.findViewById(R.id.tv_fetch_color);
         tv_fetch_car_type = view.findViewById(R.id.tv_fetch_car_type);
+<<<<<<< HEAD
         toolbar_fragment = view.findViewById(R.id.toolbar_fragment);
 
+=======
+        tv_kilometres = view.findViewById(R.id.tv_kilometres);
+        tv_carbon_emission = view.findViewById(R.id.tv_carbon_emission);
+        btn_carbon_emission = view.findViewById(R.id.btn_carbon_emission);
+        toolbar_fragment = view.findViewById(R.id.toolbar_fragment);
+        ll_carbon_emission = view.findViewById(R.id.ll_carbon_emission);
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
         ((MainActivity) getActivity()).setSupportActionBar(toolbar_fragment);
          toolbar_fragment.setTitle("Vehicle Details");
 
@@ -65,11 +83,41 @@ public class VehicleDetailsFragment extends Fragment {
         make_and_model = dataModels.get(position).getMakeAndModel();
         color = dataModels.get(position).getColor();
         car_type = dataModels.get(position).getCarType();
+<<<<<<< HEAD
+=======
+        kilometrage = dataModels.get(position).getKilometrage();
+
+
+        btn_carbon_emission.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ll_carbon_emission.setVisibility(View.VISIBLE);
+            }
+        });
+
+        if(kilometrage > 5000) {
+            carbon_emission = carbon_emission + (1 * 5000);
+            remaining_kilometrage = kilometrage - 5000;
+            remaining_carbon_emission = remaining_carbon_emission + (1.5 * remaining_kilometrage);
+            total_carbon_emission = carbon_emission + remaining_carbon_emission;
+        }
+
+        else if(kilometrage <= 5000)
+        {
+            carbon_emission = carbon_emission + (1 * kilometrage);
+            total_carbon_emission = carbon_emission;
+        }
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
 
         tv_fetch_vin.setText("Vin:  " + vin);
         tv_fetch_model.setText("Make_and_Model:  " + make_and_model);
         tv_fetch_color.setText("Color:  " + color);
         tv_fetch_car_type.setText("Car_Type:  " + car_type);
+<<<<<<< HEAD
+=======
+        tv_kilometres.setText("" + kilometrage);
+        tv_carbon_emission.setText("" + total_carbon_emission);
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
         setupOnBackPressed();
 
         return view;
@@ -92,6 +140,9 @@ public class VehicleDetailsFragment extends Fragment {
             }
         });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
     }
 }

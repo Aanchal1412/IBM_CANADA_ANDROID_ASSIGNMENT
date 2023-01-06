@@ -51,7 +51,11 @@ RecyclerView rv_vehicle;
 FrameLayout vehicle_details_fragment;
 ProgressBar progressBar;
 Toolbar toolbar_main_activity;
+<<<<<<< HEAD
 
+=======
+SwipeRefreshLayout swipeRefreshLayout;
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
 
 private List<DataModel> model = new ArrayList<>();
 
@@ -64,6 +68,10 @@ private List<DataModel> model = new ArrayList<>();
         rv_vehicle = findViewById(R.id.rv_vehicle);
         vehicle_details_fragment = findViewById(R.id.vehicle_details_fragment);
         progressBar = findViewById(R.id.progressBar);
+<<<<<<< HEAD
+=======
+        swipeRefreshLayout = findViewById(R.id.sr_vehicles);
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
         toolbar_main_activity = findViewById(R.id.toolbar_main_activity);
         setSupportActionBar(toolbar_main_activity);
         getSupportActionBar().setTitle("Vehicle List");
@@ -87,6 +95,18 @@ private List<DataModel> model = new ArrayList<>();
            }
        });
 
+<<<<<<< HEAD
+=======
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                showProgress(progressBar);
+                ResponseDetails();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+>>>>>>> 67cf80897161f24c7f36116aaa1bdd139b6973aa
     }
 
     private void ResponseDetails() {
